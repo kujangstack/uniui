@@ -1,6 +1,6 @@
 {
   "name": "@kujang/uniui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI Component Library for React Native. Build on top of the react-native-unistyles",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.cjs",
@@ -46,14 +46,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hiriski/@kujang/uniui.git"
+    "url": "https://github.com/kujangstack/uniui"
   },
-  "author": "hiriski <hiriski@outlook.com> (https://github.com/hiriski)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hiriski/@kujang/uniui/issues"
+    "url": "https://github.com/kujangstack/uniui/issues"
   },
-  "homepage": "https://github.com/hiriski/@kujang/uniui#readme",
+  "homepage": "https://github.com/kujangstack/uniui#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
