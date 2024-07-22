@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import { View, Text, Button } from 'react-native'
-import { multiply } from '@kujang/uniui'
+import { View, Text } from 'react-native'
 import { createStyleSheet, useStyles } from 'react-native-unistyles'
+import { Typography } from '@kujang/uniui'
+
+import './unistyles'
 
 export default function App() {
   const { styles } = useStyles(stylesheet)
-  const [result, setResult] = useState<number | null>(null)
-
-  const onPressCalculate = async () => {
-    const number1 = Math.floor(Math.random() * 100)
-    const number2 = Math.floor(Math.random() * 100)
-    setResult(await multiply(number1, number2))
-  }
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
-      <Button title='Calculate' onPress={onPressCalculate} />
+      <Text>React Native Text</Text>
+      <Typography variant='body' gutterBottom={4}>
+        UniUI Typography
+      </Typography>
+      <Typography variant='h2' gutterBottom={4}>
+        UniUI Typography
+      </Typography>
+      <Typography variant='body' color='text.secondary'>
+        UniUI Typography 'text.secondary'
+      </Typography>
+      <Typography variant='body' color='text.disabled'>
+        UniUI Typography 'text.disabled'
+      </Typography>
     </View>
   )
 }
 
-const stylesheet = createStyleSheet({
+const stylesheet = createStyleSheet(() => ({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-})
+}))
