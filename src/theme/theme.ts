@@ -134,7 +134,7 @@ export const theme_typography: ThemeTypographyOptions = {
   },
 };
 
-const theme_utils: ThemeUtils = {
+export const theme_utils: ThemeUtils = {
   createSpacing: (unit) => theme_spacingSize * Number(unit || 1),
 };
 
