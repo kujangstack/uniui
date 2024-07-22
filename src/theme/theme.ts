@@ -104,30 +104,16 @@ export const theme_typography: ThemeTypographyOptions = {
     letterSpacing: 0.2,
     ...theme_typographyFontWeight,
   },
-  body1: {
+  body: {
     fontFamily: theme_DEFAULT_FONT_FAMILY,
     fontSize: 14,
     lineHeight: 19,
     letterSpacing: 0.2,
     ...theme_typographyFontWeight,
   },
-  body2: {
-    fontFamily: theme_DEFAULT_FONT_FAMILY,
-    fontSize: 13,
-    lineHeight: 18,
-    letterSpacing: 0.2,
-    ...theme_typographyFontWeight,
-  },
-  subtitle1: {
+  subtitle: {
     fontFamily: theme_DEFAULT_FONT_FAMILY,
     fontSize: 12,
-    lineHeight: 17,
-    letterSpacing: 0.2,
-    ...theme_typographyFontWeight,
-  },
-  subtitle2: {
-    fontFamily: theme_DEFAULT_FONT_FAMILY,
-    fontSize: 11.2,
     lineHeight: 17,
     letterSpacing: 0.2,
     ...theme_typographyFontWeight,

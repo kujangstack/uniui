@@ -1,15 +1,10 @@
 import { TextStyle } from 'react-native';
 
-import {
-  theme_breakpoints,
-  theme_spacingSize,
-  theme_brandPalette,
-  theme_shape,
-} from './theme';
+import { theme_breakpoints, theme_brandPalette, theme_shape } from './theme';
 
 export type ThemeBreakpoints = typeof theme_breakpoints;
 
-export type ThemeSpacing = typeof theme_spacingSize;
+export type ThemeSpacing = number;
 
 export type ThemeBrandPalette = typeof theme_brandPalette;
 
@@ -20,18 +15,16 @@ export type ThemePaletteMode = 'light' | 'dark';
 export type ThemeSize = 'small' | 'medium' | 'large' | 'extra-large';
 
 export type ThemeTypographyVariant =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'body1'
-  | 'body2'
+  | 'body'
+  | 'subtitle'
   | 'caption'
-  | 'button';
+  | 'button'
+  | 'h6'
+  | 'h5'
+  | 'h4'
+  | 'h3'
+  | 'h2'
+  | 'h1';
 
 export type ThemeTypographyColor =
   | 'text.primary'
@@ -46,17 +39,17 @@ export type ThemeTypographyColor =
   | 'common.white'
   | 'common.black';
 
-// prettier-ignore
-export interface ThemeFontStyles extends Required<{
-  fontFamily: TextStyle['fontFamily']
-  fontSize: TextStyle['fontSize']
-  fontWeightLight: TextStyle['fontWeight']
-  fontWeightRegular: TextStyle['fontWeight']
-  fontWeightMedium: TextStyle['fontWeight']
-  fontWeightBold: TextStyle['fontWeight']
-  lineHeight: TextStyle['lineHeight']
-  letterSpacing: TextStyle['letterSpacing']
-}> {}
+export interface ThemeFontStyles
+  extends Required<{
+    fontFamily: TextStyle['fontFamily'];
+    fontSize: TextStyle['fontSize'];
+    fontWeightLight: TextStyle['fontWeight'];
+    fontWeightRegular: TextStyle['fontWeight'];
+    fontWeightMedium: TextStyle['fontWeight'];
+    fontWeightBold: TextStyle['fontWeight'];
+    lineHeight: TextStyle['lineHeight'];
+    letterSpacing: TextStyle['letterSpacing'];
+  }> {}
 
 export type ThemeTypographyStyle = TextStyle;
 
@@ -64,8 +57,8 @@ export type ThemeTypographyStyleOptions = {
   allVariants: ThemeFontStyles;
 };
 
-// prettier-ignore
-export interface ThemeTypographyOptions extends Record<ThemeTypographyVariant, ThemeFontStyles> {}
+export interface ThemeTypographyOptions
+  extends Record<ThemeTypographyVariant, ThemeFontStyles> {}
 
 export type ThemeTextColor = {
   primary: string;
