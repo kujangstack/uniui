@@ -22,7 +22,7 @@ export const theme_breakpoints = {
 export const theme_spacingSize = 4;
 
 export const theme_shape = {
-  borderRadius: 4,
+  borderRadius: 8,
 };
 
 export const theme_brandPalette = {
@@ -166,7 +166,7 @@ export const theme_lightTheme: Theme = {
     },
     warning: {
       main: '#ff9100',
-      dark: '#ff9100',
+      dark: '#B75800',
       light: '#fdf4ed',
       contrastText: '#fbfbfb',
     },
