@@ -1,6 +1,6 @@
 {
   "name": "@kujang/uniui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "UI Component Library for React Native. Build on top of the react-native-unistyles",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.cjs",
