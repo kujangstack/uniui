@@ -19,6 +19,7 @@ module.exports = {
         ],
         alias: {
           '@kujang/uniui': path.resolve(__dirname, '../src'),
+          '@': path.resolve(__dirname, '../src'),
         },
       },
     ],
