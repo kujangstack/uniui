@@ -6,13 +6,7 @@
   "main": "./lib/commonjs/index.cjs",
   "module": "./lib/module/index.mjs",
   "types": "./lib/typescript/src/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./lib/typescript/src/index.d.ts",
-      "import": "./lib/module/index.mjs",
-      "require": "./lib/commonjs/index.cjs"
-    }
-  },
+  "react-native": "src/index.ts",
   "files": [
     "src",
     "lib",
@@ -63,7 +57,8 @@
     "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^29.5.5",
-    "@types/react": "^18.2.44",
+    "@types/react": "^18.3.3",
+    "@types/react-native": "^0.73.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
@@ -82,9 +77,19 @@
     "@types/react": "^18.2.44"
   },
   "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*",
     "react": "*",
     "react-native": "*",
     "react-native-unistyles": "^2.9.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react-native": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    }
   },
   "jest": {
     "preset": "react-native",
