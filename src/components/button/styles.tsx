@@ -1,5 +1,5 @@
 import { createStyleSheet } from 'react-native-unistyles';
-import { COMPONENT_VARIANT_SIZE } from '@/constants';
+import { COMPONENT_VARIANT_SIZE } from '../../constants';
 import { ButtonColor, ButtonProps, ButtonVariant } from './types';
 import { DEFAULT_BORDER_WIDTH, MAX_BORDER_WIDTH } from './constants';
 

@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "@kujang/uniui": ["./src/index"],
-      "@/*": ["./src/*"]
+      "@kujang/uniui": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": ["ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
@@ -23,7 +22,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
+    "target": "esnext",
     "verbatimModuleSyntax": false
   },
   "exclude": ["example"],

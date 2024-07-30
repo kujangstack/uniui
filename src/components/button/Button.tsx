@@ -28,7 +28,7 @@ import {
 } from './styles';
 
 // components
-import Typography from '@/components/typography/Typography';
+import Typography from '../typography/Typography';
 
 const Button = ({
   title,
