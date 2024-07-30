@@ -2,11 +2,9 @@
   "name": "@kujang/uniui",
   "version": "1.0.7",
   "description": "UI Component Library for React Native. Build on top of the react-native-unistyles",
-  "source": "./src/index.tsx",
-  "main": "./lib/commonjs/index.cjs",
-  "module": "./lib/module/index.mjs",
-  "types": "./lib/typescript/src/index.d.ts",
-  "react-native": "src/index.ts",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
   "files": [
     "src",
     "lib",
@@ -30,8 +28,10 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
-    "prepare": "bob build",
-    "release": "rm -rf lib && yarn prepare && release-it",
+    "build": "bob build && yarn copy-dts && yarn delete-dts.js",
+    "copy-dts": "copyfiles -u 1 \"src/**/*.d.ts\" lib/typescript",
+    "delete-dts.js": "find ./lib/commonjs -name '*.d.js*' -delete && find ./lib/module -name '*.d.js*' -delete",
+    "release": "rm -rf lib && yarn build && release-it",
     "prettier": "npx prettier --write src"
   },
   "keywords": [
@@ -60,6 +60,7 @@
     "@types/react": "^18.3.3",
     "@types/react-native": "^0.73.0",
     "commitlint": "^17.0.2",
+    "copyfiles": "^2.4.1",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -155,24 +156,9 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "commonjs",
-        {
-          "esm": true
-        }
-      ],
-      [
-        "module",
-        {
-          "esm": true
-        }
-      ],
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
+      "commonjs",
+      "module",
+      "typescript"
     ]
   },
   "create-react-native-library": {

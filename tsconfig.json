@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
       "@kujang/uniui": ["./src/index"]
     },
