@@ -3,6 +3,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles'
 import { Typography } from '@kujang/uniui'
 
 import './unistyles'
+import TextFieldContainer from './containers/TextFieldContainer'
 
 export default function App() {
   const { styles } = useStyles(stylesheet)
@@ -22,6 +23,8 @@ export default function App() {
       <Typography variant='body' color='text.disabled'>
         UniUI Typography 'text.disabled'
       </Typography>
+
+      <TextFieldContainer />
     </View>
   )
 }
