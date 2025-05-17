@@ -6,3 +6,7 @@ export interface NullableAccessibilityProps extends AccessibilityProps {
   accessibilityHint?: AccessibilityProps['accessibilityHint'] | null;
   accessibilityRole?: AccessibilityProps['accessibilityRole'] | null;
 }
+
+export interface IStylesheetExtraStyles<T> {
+  extraStyles: (type: Partial<T>) => any;
+}

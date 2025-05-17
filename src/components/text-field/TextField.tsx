@@ -1,8 +1,5 @@
 import { memo, useMemo } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
-
-// unistyles
-import { useStyles } from 'react-native-unistyles';
+import { TextInput, View } from 'react-native';
 
 // interfaces
 import { TextFieldProps } from './types';
@@ -17,12 +14,12 @@ import {
 } from './constants';
 
 // styles
-import { stylesheet } from './styles';
+import { styles } from './styles';
 
 // utils
 import { theme_utils } from '../../theme';
 
-const TextFieldComponent = ({
+const UniUITextField = ({
   style,
   inputStyle,
   children,
@@ -34,18 +31,17 @@ const TextFieldComponent = ({
   ...rest
 }: TextFieldProps) => {
   // styles
-  const { styles } = useStyles(stylesheet, {
+  styles.useVariants({
     textColor,
     variant,
     size,
-    // @ts-ignore
     fontWeight,
   });
 
-  // root styles
-  const rootStyles = useMemo(
+  // base styles
+  const baseStyles = useMemo(
     () => [styles.root, ...[Array.isArray(style) ? style : [style]]],
-    [style, styles.root]
+    [style]
   );
 
   // input styles
@@ -54,7 +50,7 @@ const TextFieldComponent = ({
       styles.input,
       ...[Array.isArray(inputStyle) ? inputStyle : [inputStyle]],
     ],
-    [inputStyle, styles.input]
+    [inputStyle]
   );
 
   const gutterBottom = useMemo<number>(() => {
@@ -67,17 +63,15 @@ const TextFieldComponent = ({
   }, [_gutterBottom]);
 
   return (
-    <View
-      style={StyleSheet.flatten([rootStyles, { marginBottom: gutterBottom }])}
-    >
-      <TextInput {...rest} style={StyleSheet.flatten([inputStyles])}>
+    <View style={[baseStyles, { marginBottom: gutterBottom }]}>
+      <TextInput {...rest} style={[inputStyles]}>
         {children}
       </TextInput>
     </View>
   );
 };
 
-const TextField = memo(TextFieldComponent);
+const TextField = memo(UniUITextField);
 TextField.displayName = 'TextField';
 
 export default TextField;

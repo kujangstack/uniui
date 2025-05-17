@@ -1,23 +1,28 @@
-import { UnistylesRegistry } from 'react-native-unistyles'
-import {
-  theme_lightTheme,
-  theme_darkTheme,
-  theme_breakpoints,
-  ThemeBreakpoints,
-  Themes,
-} from '@kujang/uniui'
+// import { StyleSheet } from 'react-native-unistyles'
 
-declare module 'react-native-unistyles' {
-  export interface UnistylesBreakpoints extends ThemeBreakpoints {}
-  export interface UnistylesThemes extends Themes {}
-}
+// import {
+//   theme_lightTheme,
+//   theme_darkTheme,
+//   theme_breakpoints,
+//   ThemeBreakpoints,
+//   Themes,
+// } from '@kujang/uniui'
 
-UnistylesRegistry.addBreakpoints(theme_breakpoints)
-  .addThemes({
-    light: theme_lightTheme,
-    dark: theme_darkTheme,
-  })
-  .addConfig({
-    adaptiveThemes: true,
-    initialTheme: 'light',
-  })
+// declare module 'react-native-unistyles' {
+//   export interface UnistylesThemes extends Themes {}
+//   export interface UnistylesBreakpoints extends ThemeBreakpoints {}
+// }
+
+// const appThemes: Themes = {
+//   light: theme_lightTheme,
+//   dark: theme_darkTheme,
+// }
+
+// StyleSheet.configure({
+//   settings: {
+//     // adaptiveThemes: true,
+//     initialTheme: 'light',
+//   },
+//   breakpoints: theme_breakpoints,
+//   themes: appThemes,
+// })
