@@ -7946,10 +7946,10 @@ react-native-builder-bob@^0.25.0:
     which "^2.0.2"
     yargs "^17.5.1"
 
-react-native-unistyles@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-unistyles/-/react-native-unistyles-2.9.0.tgz#28c3527f9e2b44c91463cb38950f27fdd6875d7b"
-  integrity sha512-YpnKPQfUbr4ku/z9cjv/2+oSBOXu2lD0Uekw/dlQtsZKYSCdDcMAlThqpj7RcN+R2JocoAMcguMVmYHXyI+ung==
+react-native-unistyles@^3.0.0-rc.4:
+  version "3.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/react-native-unistyles/-/react-native-unistyles-3.0.0-rc.4.tgz#cb9f57d45e5ca4ea0e64144a432f53da3ae4ac86"
+  integrity sha512-YpVd1ylkYkycIRs1lEamOAlWe/PTKzEGyAhqsuRyftxeXBr/rqT1A9xlrLF+s26TG820QNeITpqS8HEwK/UXuw==
 
 react-native@*, react-native@0.74.3:
   version "0.74.3"

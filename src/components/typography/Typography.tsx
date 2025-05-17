@@ -1,8 +1,5 @@
 import { memo, useMemo } from 'react';
-import { StyleSheet, Text } from 'react-native';
-
-// unistyles
-import { useStyles } from 'react-native-unistyles';
+import { Text } from 'react-native';
 
 // interfaces
 import { TypographyProps } from './types';
@@ -15,13 +12,13 @@ import {
   DEFAULT_TYPOGRAPHY_FONT_WEIGHT,
 } from './constants';
 
-// styles
-import { stylesheet } from './styles';
-
 // utils
 import { theme_utils } from '../../theme';
 
-const Typography = ({
+// styles
+import { styles } from './styles';
+
+const UniUITypography = ({
   style,
   children,
   color = DEFAULT_TYPOGRAPHY_COLOR,
@@ -30,16 +27,15 @@ const Typography = ({
   gutterBottom: _gutterBottom = DEFAULT_TYPOGRAPHY_GUTTER_BOTTOM,
   ...rest
 }: TypographyProps) => {
-  // styles
-  const { styles } = useStyles(stylesheet, {
+  styles.useVariants({
     color,
     variant,
-    // @ts-ignore
     fontWeight,
   });
-  const rootStyles = useMemo(
-    () => [styles.root, ...[Array.isArray(style) ? style : [style]]],
-    [style, styles.root]
+
+  const baseTextStyles = useMemo(
+    () => [styles.baseText, ...[Array.isArray(style) ? style : [style]]],
+    [style]
   );
 
   const gutterBottom = useMemo<number>(() => {
@@ -52,13 +48,13 @@ const Typography = ({
   }, [_gutterBottom]);
 
   return (
-    <Text
-      {...rest}
-      style={StyleSheet.flatten([rootStyles, { marginBottom: gutterBottom }])}
-    >
+    <Text {...rest} style={[baseTextStyles, { marginBottom: gutterBottom }]}>
       {children}
     </Text>
   );
 };
 
-export default memo(Typography);
+const Typography = memo(UniUITypography);
+Typography.displayName = 'Typography';
+
+export default Typography;

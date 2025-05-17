@@ -1,13 +1,15 @@
-import { grey, blue, amber } from '../libs/palette';
+import { grey, blue } from '../libs/palette';
 import {
   Theme,
   ThemeFontStyles,
+  Themes,
   ThemeTypographyOptions,
   ThemeUtils,
 } from './theme.type';
 import { TextStyle } from 'react-native';
 
-export const theme_DEFAULT_FONT_FAMILY = '';
+// export const theme_DEFAULT_FONT_FAMILY = 'Jost';
+export const theme_DEFAULT_FONT_FAMILY = 'Plus Jakarta Sans';
 
 export const theme_breakpoints = {
   xs: 0,
@@ -33,9 +35,9 @@ export const theme_brandPalette = {
     contrastText: '#fbfbfb',
   },
   secondary: {
-    main: amber[600],
-    dark: amber[800],
-    light: '#FEE3E2',
+    main: '#FF4423',
+    dark: '#DB2719',
+    light: '#FFE7D3',
     contrastText: '#fbfbfb',
   },
   common: {
@@ -260,4 +262,9 @@ export const theme_darkTheme: Theme = {
 
   // utils
   utils: theme_utils,
+};
+
+export const themes: Themes = {
+  light: theme_lightTheme,
+  dark: theme_darkTheme,
 };

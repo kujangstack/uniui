@@ -1,9 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Pressable, StyleProp, ViewStyle } from 'react-native';
 
-// unistyles
-import { useStyles } from 'react-native-unistyles';
-
 // interfaces
 import { ButtonProps } from './types';
 
@@ -21,16 +18,12 @@ import {
 } from './constants';
 
 // styles
-import {
-  buttonStylesheet,
-  buttonTextStylesheet,
-  pressedButtonStylesheet,
-} from './styles';
+import { buttonStyles, buttonTextStyles, pressedButtonStyles } from './styles';
 
 // components
 import Typography from '../typography/Typography';
 
-const Button = ({
+const UniUIButton = ({
   title,
   style: _style,
   textStyle: _textStyle,
@@ -45,53 +38,64 @@ const Button = ({
   accessibilityHint: _providedAccessibilityHint = DEFAULT_ACCESSIBILITY_HINT,
   ...rest
 }: ButtonProps) => {
-  // root button styles
-  const { styles: _rootStyles } = useStyles(buttonStylesheet, {
+  // base button styles
+  buttonStyles.useVariants({
     color,
     variant,
     size,
   });
 
-  // pressed button styles
-  const { styles: _pressedStyles } = useStyles(pressedButtonStylesheet, {
-    color,
-    variant,
-  });
-
-  // button text styles
-  const { styles: _textStyles } = useStyles(buttonTextStylesheet, {
+  buttonTextStyles.useVariants({
     color,
     variant,
     size,
   });
 
-  const rootStyles = useMemo(
+  buttonTextStyles.useVariants({
+    color,
+    variant,
+    size,
+  });
+
+  pressedButtonStyles.useVariants({
+    color,
+    variant,
+    size,
+  });
+
+  const baseButtonStyles = useMemo(
     () => [
-      _rootStyles.extraStyles(variant, color, rounded, borderWidth),
-      _rootStyles.root,
+      buttonStyles.extraStyles({ variant, color, rounded, borderWidth }),
+      buttonStyles.base,
       _style,
     ],
-    [_rootStyles, variant, color, rounded, borderWidth, _style]
+    [_style, borderWidth, color, rounded, variant]
   );
 
   const pressedStyles = useMemo(
-    () => [_pressedStyles.extraStyles(variant, color), _pressedStyles.root],
-    [_pressedStyles, variant, color]
+    () => [
+      pressedButtonStyles.extraStyles({ variant, color }),
+      pressedButtonStyles.base,
+    ],
+    [color, variant]
   );
 
   const textStyles = useMemo(
     () => [
-      _textStyles.root,
-      _textStyles.extraStyles(color, variant),
+      buttonTextStyles.base,
+      buttonTextStyles.extraStyles({ color, variant }),
       ...[Array.isArray(_textStyle) ? _textStyle : [_textStyle]],
     ],
-    [_textStyle, _textStyles, color, variant]
+    [_textStyle, color, variant]
   );
 
   return (
     <Pressable
       style={({ pressed }) =>
-        [...rootStyles, ...[pressed && pressedStyles]] as StyleProp<ViewStyle>
+        [
+          ...baseButtonStyles,
+          ...[pressed && pressedStyles],
+        ] as StyleProp<ViewStyle>
       }
       {...rest}
     >
@@ -100,4 +104,7 @@ const Button = ({
   );
 };
 
-export default memo(Button);
+const Button = memo(UniUIButton);
+Button.displayName = 'Button';
+
+export default Button;
